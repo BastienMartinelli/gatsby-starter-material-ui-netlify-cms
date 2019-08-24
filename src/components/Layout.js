@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: "center",
     backgroundColor: theme.palette.primary.main,
     background,
-    marginTop: 60,
+    paddingTop: 60,
     padding: theme.spacing(8, 0, 6),
     height: 200
   }

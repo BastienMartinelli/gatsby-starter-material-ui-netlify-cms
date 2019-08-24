@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 
 import useSiteMetadata from "./SiteMetadata";
+import transitions from "@material-ui/core/styles/transitions";
 
 const AdapterLink = React.forwardRef((props, ref) => (
   <Link ref={ref} {...props} />
@@ -22,6 +23,17 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1
+  },
+  transparent: {
+    backgroundColor: "transparent",
+    transition: "all 0.2s"
+  },
+  opaque: {
+    backgroundColor: theme.palette.primary.main,
+    transition: "all 0.5s"
+  },
+  rounded: {
+    borderRadius: 25
   }
 }));
 
@@ -32,7 +44,12 @@ function Navbar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" color="primary">
+      <AppBar
+        position="fixed"
+        className={classes.bar}
+        className={scrollTrigger ? classes.opaque : classes.transparent}
+        elevation={scrollTrigger ? 4 : 0}
+      >
         <Toolbar>
           <Typography
             className={classes.title}
@@ -42,13 +59,25 @@ function Navbar() {
           >
             {title}
           </Typography>
-          <Button color="inherit" component={AdapterLink} to="/">
+          <Button size="large" color="inherit" component={AdapterLink} to="/">
             Home
           </Button>
-          <Button color="inherit" component={AdapterLink} to="/contact">
+          <Button
+            size="large"
+            color="inherit"
+            component={AdapterLink}
+            to="/contact"
+          >
             Contact
           </Button>
-          <Button color="inherit" component={AdapterLink} to="/blog">
+          <Button
+            size="large"
+            variant="contained"
+            color="secondary"
+            className={classes.rounded}
+            component={AdapterLink}
+            to="/blog"
+          >
             Blog
           </Button>
         </Toolbar>
