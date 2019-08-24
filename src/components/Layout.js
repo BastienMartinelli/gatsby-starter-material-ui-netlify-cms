@@ -1,20 +1,36 @@
-import React from 'react'
-import { Helmet } from 'react-helmet'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
-import './all.sass'
-import useSiteMetadata from './SiteMetadata'
-import { withPrefix } from "gatsby"
+import React from "react";
+import { Helmet } from "react-helmet";
+import { withPrefix } from "gatsby";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { ThemeProvider } from "@material-ui/styles";
+import { makeStyles } from "@material-ui/core/styles";
+
+import theme from "../theme";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
+import useSiteMetadata from "./SiteMetadata";
+
+const useStyles = makeStyles(theme => ({
+  content: {
+    marginTop: 60
+  }
+}));
 
 const TemplateWrapper = ({ children }) => {
-  const { title, description } = useSiteMetadata()
+  const { title, description } = useSiteMetadata();
+  const classes = useStyles();
+
   return (
-    <div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
         <meta name="description" content={description} />
-
+        <link
+          href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
+          rel="stylesheet"
+        />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -38,18 +54,19 @@ const TemplateWrapper = ({ children }) => {
           href={`${withPrefix("/")}img/safari-pinned-tab.svg`}
           color="#ff4400"
         />
-        <meta name="theme-color" content="#fff" />
-
         <meta property="og:type" content="business.business" />
         <meta property="og:title" content={title} />
         <meta property="og:url" content="/" />
-        <meta property="og:image" content={`${withPrefix("/")}img/og-image.jpg`} />
+        <meta
+          property="og:image"
+          content={`${withPrefix("/")}img/og-image.jpg`}
+        />
       </Helmet>
       <Navbar />
-      <div>{children}</div>
+      <div className={classes.content}>{children}</div>
       <Footer />
-    </div>
-  )
-}
+    </ThemeProvider>
+  );
+};
 
-export default TemplateWrapper
+export default TemplateWrapper;
