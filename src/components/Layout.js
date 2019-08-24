@@ -21,7 +21,12 @@ const useStyles = makeStyles(theme => ({
     background,
     paddingTop: 60,
     padding: theme.spacing(8, 0, 6),
-    height: 200
+    height: 200,
+    animation: "$slide 8s linear infinite"
+  },
+  "@keyframes slide": {
+    from: { backgroundPositionY: 0 },
+    to: { backgroundPositionY: -350 }
   }
 }));
 
