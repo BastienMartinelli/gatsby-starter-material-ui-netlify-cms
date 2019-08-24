@@ -10,9 +10,6 @@ const useStyles = makeStyles({
   title: {
     marginBottom: 32,
     color: "#fff"
-  },
-  container: {
-    marginTop: -120
   }
 });
 
@@ -21,7 +18,7 @@ export default function BlogIndexPage() {
 
   return (
     <Layout>
-      <Container className={classes.container}>
+      <Container>
         <Typography className={classes.title} component="h1" variant="h3">
           Latest Stories
         </Typography>

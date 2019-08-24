@@ -10,7 +10,6 @@ import makeStyles from "@material-ui/styles/makeStyles";
 
 const useStyles = makeStyles(theme => ({
   paper: {
-    marginTop: -80,
     padding: 20,
     backgroundColor: theme.palette.background
   }
