@@ -9,10 +9,19 @@ import theme from "../theme";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import useSiteMetadata from "./SiteMetadata";
+import { background } from "../utils/background";
 
 const useStyles = makeStyles(theme => ({
   content: {
-    marginTop: 60
+    marginTop: -100
+  },
+  heroContent: {
+    backgroundPosition: "center",
+    backgroundColor: theme.palette.primary.main,
+    background,
+    marginTop: 60,
+    padding: theme.spacing(8, 0, 6),
+    height: 200
   }
 }));
 
@@ -63,6 +72,7 @@ const TemplateWrapper = ({ children }) => {
         />
       </Helmet>
       <Navbar />
+      <div className={classes.heroContent} />
       <div className={classes.content}>{children}</div>
       <Footer />
     </ThemeProvider>

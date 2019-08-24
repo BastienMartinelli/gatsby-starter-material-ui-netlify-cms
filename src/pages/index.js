@@ -18,14 +18,6 @@ import { background } from "../utils/background";
 import { Paper } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
-  heroContent: {
-    backgroundPosition: "center",
-    backgroundColor: theme.palette.primary.main,
-    background,
-    paddingTop: 60,
-    padding: theme.spacing(8, 0, 6),
-    height: 200
-  },
   heroButtons: {
     marginTop: theme.spacing(4)
   },
@@ -49,7 +41,6 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(6)
   },
   paper: {
-    marginTop: -100,
     padding: 40,
     marginBottom: 20,
     backgroundColor: theme.palette.background
@@ -61,7 +52,6 @@ export default function() {
 
   return (
     <Layout>
-      <div className={classes.heroContent}></div>
       <Container maxWidth="md">
         <Paper className={classes.paper}>
           <Typography

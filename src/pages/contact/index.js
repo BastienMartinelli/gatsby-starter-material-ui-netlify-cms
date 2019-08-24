@@ -11,24 +11,22 @@ import Layout from "../../components/Layout";
 import { background } from "../../utils/background";
 
 const useStyles = makeStyles(theme => ({
-  root: {},
-  image: {
-    backgroundPosition: "center",
-    backgroundColor: theme.palette.primary.main,
-    background
-  },
   paper: {
-    margin: theme.spacing(8, 4),
     display: "flex",
+    padding: 20,
     flexDirection: "column",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: theme.palette.background
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1)
+    width: "100%" // Fix IE 11 issue.
   },
   submit: {
     margin: theme.spacing(3, 0, 2)
+  },
+  title: {
+    marginBottom: 12,
+    color: "#fff"
   }
 }));
 
@@ -64,20 +62,17 @@ export default function Index() {
   return (
     <Layout>
       <section className="section">
-        <Grid container component="main" className={classes.root}>
-          <Grid
-            item
-            xs={12}
-            sm={8}
-            md={5}
-            component={Paper}
-            square
-            elevation={0}
-          >
-            <div className={classes.paper}>
-              <Typography component="h1" variant="h5">
-                Contact Me
-              </Typography>
+        <Grid
+          container
+          component="main"
+          className={classes.root}
+          justify="center"
+        >
+          <Grid item xs={12} sm={8} md={5}>
+            <Typography className={classes.title} component="h1" variant="h3">
+              Contact Me
+            </Typography>
+            <Paper className={classes.paper}>
               <form
                 name="contact"
                 method="post"
@@ -145,9 +140,8 @@ export default function Index() {
                   Submit
                 </Button>
               </form>
-            </div>
+            </Paper>
           </Grid>
-          <Grid item xs={false} sm={4} md={7} className={classes.image} />
         </Grid>
       </section>
     </Layout>

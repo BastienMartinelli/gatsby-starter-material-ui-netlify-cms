@@ -61,7 +61,8 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(3)
   },
   card: {
-    display: "flex"
+    display: "flex",
+    backgroundColor: theme.palette.background
   },
   cardDetails: {
     flex: 1
@@ -105,7 +106,7 @@ function BlogRoll(props) {
               <Card className={classes.card}>
                 <div className={classes.cardDetails}>
                   <CardContent>
-                    <Typography component="h2" variant="h5">
+                    <Typography component="h2" variant="h5" noWrap>
                       {post.frontmatter.title}
                     </Typography>
                     <Typography variant="subtitle1" color="textSecondary">

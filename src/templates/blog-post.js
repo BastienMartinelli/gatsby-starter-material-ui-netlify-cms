@@ -8,12 +8,13 @@ import Content, { HTMLContent } from "../components/Content";
 import { Container, Typography, Divider, Paper } from "@material-ui/core";
 import makeStyles from "@material-ui/styles/makeStyles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   paper: {
-    marginTop: 120,
-    padding: 20
+    marginTop: -80,
+    padding: 20,
+    backgroundColor: theme.palette.background
   }
-});
+}));
 
 export const BlogPostTemplate = ({
   content,
