@@ -9,7 +9,7 @@ import BlogRoll from "../../components/BlogRoll";
 const useStyles = makeStyles({
   title: {
     color: "#fff",
-    marginBottom: 12
+    marginBottom: 24
   }
 });
 
@@ -19,7 +19,7 @@ export default function BlogIndexPage() {
   return (
     <Layout>
       <Container>
-        <Typography className={classes.title} component="h1" variant="h3">
+        <Typography className={classes.title} component="h1" variant="h2">
           Latest Stories
         </Typography>
         <BlogRoll />

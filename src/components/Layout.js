@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column"
   },
   content: {
-    marginTop: -240,
+    marginTop: -280,
     flex: "1 0 auto"
   },
   heroContent: {
@@ -76,7 +76,6 @@ const TemplateWrapper = ({ children }) => {
           href={`${withPrefix("/")}img/favicon-16x16.png`}
           sizes="16x16"
         />
-
         <link
           rel="mask-icon"
           href={`${withPrefix("/")}img/safari-pinned-tab.svg`}

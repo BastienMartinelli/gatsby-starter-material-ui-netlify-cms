@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(3, 0, 2)
   },
   title: {
-    marginBottom: 12,
+    marginBottom: 24,
     color: "#fff"
   }
 }));
@@ -69,7 +69,7 @@ export default function Index() {
           justify="center"
         >
           <Grid item xs={12} sm={8} md={5}>
-            <Typography className={classes.title} component="h1" variant="h3">
+            <Typography className={classes.title} component="h1" variant="h2">
               Contact Me
             </Typography>
             <Paper className={classes.paper}>
