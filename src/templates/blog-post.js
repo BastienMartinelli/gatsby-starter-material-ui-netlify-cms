@@ -7,6 +7,7 @@ import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 import { Container, Typography, Divider, Paper } from "@material-ui/core";
 import makeStyles from "@material-ui/styles/makeStyles";
+import Chip from "@material-ui/core/Chip";
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -19,6 +20,9 @@ const useStyles = makeStyles(theme => ({
   },
   subTitle: {
     marginBottom: 48
+  },
+  chip: {
+    margin: theme.spacing(1)
   }
 }));
 
@@ -41,7 +45,7 @@ export const BlogPostTemplate = ({
           {title}
         </Typography>
         <Typography
-          variant="subtitle1"
+          variant="h5"
           color="textSecondary"
           className={classes.subTitle}
         >
@@ -52,14 +56,16 @@ export const BlogPostTemplate = ({
         </Typography>
         {tags && tags.length ? (
           <div style={{ marginTop: `4rem` }}>
+            <Divider />
             <h4>Tags</h4>
-            <ul className="taglist">
-              {tags.map(tag => (
-                <li key={tag + `tag`}>
-                  <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                </li>
-              ))}
-            </ul>
+            {tags.map(tag => (
+              <Chip
+                key={tag}
+                onClick={() => {}}
+                label={<Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>}
+                className={classes.chip}
+              />
+            ))}
           </div>
         ) : null}
       </Paper>

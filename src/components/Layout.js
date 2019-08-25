@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
   wave: {
     backgroundImage: `url(${wave})`,
     backgroundPosition: "center bottom",
-    height: 200,
+    height: 204,
     marginTop: -200,
     backgroundRepeat: "repeat-x"
   }
