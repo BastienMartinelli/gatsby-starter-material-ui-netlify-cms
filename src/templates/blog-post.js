@@ -11,7 +11,14 @@ import makeStyles from "@material-ui/styles/makeStyles";
 const useStyles = makeStyles(theme => ({
   paper: {
     padding: 20,
+    marginBottom: 40,
     backgroundColor: theme.palette.background
+  },
+  title: {
+    marginBottom: 24
+  },
+  subTitle: {
+    marginBottom: 48
   }
 }));
 
@@ -30,12 +37,19 @@ export const BlogPostTemplate = ({
     <Container>
       {helmet || ""}
       <Paper className={classes.paper}>
-        <Typography component="h1" variant="h3">
+        <Typography component="h1" variant="h3" className={classes.title}>
           {title}
         </Typography>
-        <Typography>{description}</Typography>
-        <Divider />
-        <PostContent content={content} />
+        <Typography
+          variant="subtitle1"
+          color="textSecondary"
+          className={classes.subTitle}
+        >
+          {description}
+        </Typography>
+        <Typography>
+          <PostContent content={content} />
+        </Typography>
         {tags && tags.length ? (
           <div style={{ marginTop: `4rem` }}>
             <h4>Tags</h4>
