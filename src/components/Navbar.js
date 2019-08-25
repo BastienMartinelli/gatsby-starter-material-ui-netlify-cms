@@ -8,11 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 
 import useSiteMetadata from "./SiteMetadata";
-import transitions from "@material-ui/core/styles/transitions";
-
-const AdapterLink = React.forwardRef((props, ref) => (
-  <Link ref={ref} {...props} />
-));
+import AdapterLink from "../components/AdapaterLink";
 
 const useStyles = makeStyles(theme => ({
   root: {
