@@ -41,7 +41,6 @@ function Navbar() {
   const classes = useStyles();
   const { title } = useSiteMetadata();
   const scrollTrigger = useScrollTrigger({
-    target: window,
     disableHysteresis: true
   });
 
