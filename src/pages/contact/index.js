@@ -8,7 +8,6 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Layout from "../../components/Layout";
-import { background } from "../../utils/background";
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -97,7 +96,6 @@ export default function Index() {
                   margin="normal"
                   required
                   fullWidth
-                  name="name"
                   label="name"
                   autoComplete="name"
                   value={formValue.name || ""}
@@ -111,7 +109,6 @@ export default function Index() {
                   fullWidth
                   id="email"
                   label="Email Address"
-                  name="email"
                   autoComplete="email"
                   type="email"
                   value={formValue.email || ""}

@@ -7,11 +7,8 @@ import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
-import Hidden from "@material-ui/core/Hidden";
-import CardMedia from "@material-ui/core/CardMedia";
 
 import AdapterLink from "../components/AdapaterLink";
-import PreviewCompatibleImage from "./PreviewCompatibleImage";
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -25,20 +22,6 @@ const useStyles = makeStyles(theme => ({
     width: 160
   }
 }));
-
-function getImage(imageInfo) {
-  const { childImageSharp, image } = imageInfo;
-  console.log(childImageSharp);
-  if (!!image && !!image.childImageSharp) {
-    return image.childImageSharp.fluid.src;
-  }
-
-  if (!!childImageSharp) {
-    return childImageSharp.fluid.src;
-  }
-
-  return null;
-}
 
 function BlogRoll(props) {
   const { data } = props;

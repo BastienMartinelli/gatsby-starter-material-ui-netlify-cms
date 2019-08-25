@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import classNames from "classnames";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -44,8 +44,10 @@ function Navbar() {
     <div className={classes.root}>
       <AppBar
         position="fixed"
-        className={classes.bar}
-        className={scrollTrigger ? classes.opaque : classes.transparent}
+        className={classNames(
+          classes.bar,
+          scrollTrigger ? classes.opaque : classes.transparent
+        )}
         elevation={scrollTrigger ? 4 : 0}
       >
         <Toolbar>

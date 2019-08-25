@@ -49,7 +49,7 @@ export default function() {
             folks don&apos;t simply skip over it entirely.
           </Typography>
           <Grid container justify="center">
-            <img className={classes.img} src={webDev} />
+            <img className={classes.img} src={webDev} alt="web-dev" />
           </Grid>
           <Grid container spacing={2} justify="center">
             <Grid item>

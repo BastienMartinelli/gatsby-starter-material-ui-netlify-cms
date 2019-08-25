@@ -37,7 +37,7 @@ function Footer() {
         <Grid item className={classes.buttons}>
           <IconButton
             color="primary"
-            size="large"
+            size="medium"
             className={classes.iconButton}
             aria-label="linkedin"
           >
@@ -49,7 +49,7 @@ function Footer() {
             </SvgIcon>
           </IconButton>
           <IconButton
-            size="large"
+            size="medium"
             className={classes.iconButton}
             aria-label="github"
           >
