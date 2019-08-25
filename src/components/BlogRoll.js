@@ -44,9 +44,6 @@ function BlogRoll(props) {
   const { data } = props;
   const { edges: posts } = data.allMarkdownRemark;
   const classes = useStyles();
-  console.log(
-    posts[1].node.frontmatter.featuredimage.childImageSharp.fluid.src
-  );
 
   return (
     <Grid container spacing={4} className={classes.cardGrid}>
@@ -61,7 +58,7 @@ function BlogRoll(props) {
               <Card className={classes.card}>
                 <div className={classes.cardDetails}>
                   <CardContent>
-                    <Hidden xsDown>
+                    {/**<Hidden xsDown>
                       {post.frontmatter.featuredimage && (
                         <CardMedia
                           image={
@@ -71,7 +68,7 @@ function BlogRoll(props) {
                           title={`featured image thumbnail for post ${post.title}`}
                         />
                       )}
-                    </Hidden>
+                    </Hidden>*/}
                     <Typography component="h2" variant="h5" noWrap>
                       {post.frontmatter.title}
                     </Typography>
