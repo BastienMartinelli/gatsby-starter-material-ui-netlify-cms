@@ -1,6 +1,9 @@
 import React from "react";
 import Layout from "../components/Layout";
-import { Container, Grid, Typography, Paper } from "@material-ui/core";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import Paper from "@material-ui/core/Paper";
 import makeStyles from "@material-ui/styles/makeStyles";
 
 const useStyles = makeStyles(theme => ({
@@ -12,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const NotFoundPage = () => {
+function NotFoundPage() {
   const classes = useStyles();
 
   return (
@@ -26,7 +29,7 @@ const NotFoundPage = () => {
               align="center"
               className={classes.title}
             >
-              404
+              Not Found
             </Typography>
             <Typography color="textSecondary" variant="h5" align="center">
               You just hit a route that doesn&#39;t exist... the sadness.
@@ -36,6 +39,6 @@ const NotFoundPage = () => {
       </Container>
     </Layout>
   );
-};
+}
 
 export default NotFoundPage;
