@@ -40,7 +40,10 @@ const useStyles = makeStyles(theme => ({
 function Navbar() {
   const classes = useStyles();
   const { title } = useSiteMetadata();
-  const scrollTrigger = useScrollTrigger();
+  const scrollTrigger = useScrollTrigger({
+    target: window,
+    disableHysteresis: true
+  });
 
   return (
     <div className={classes.root}>

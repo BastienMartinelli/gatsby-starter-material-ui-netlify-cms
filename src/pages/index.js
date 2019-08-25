@@ -14,8 +14,8 @@ import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
 
 import Layout from "../components/Layout";
-import { background } from "../utils/background";
 import { Paper } from "@material-ui/core";
+import webDev from "../img/webDev.svg";
 
 const useStyles = makeStyles(theme => ({
   heroButtons: {
@@ -44,6 +44,10 @@ const useStyles = makeStyles(theme => ({
     padding: 40,
     marginBottom: 20,
     backgroundColor: theme.palette.background
+  },
+  img: {
+    maxWidth: 400,
+    marginBottom: 40
   }
 }));
 
@@ -73,6 +77,9 @@ export default function() {
             the creator, etc. Make it short and sweet, but not too short so
             folks don&apos;t simply skip over it entirely.
           </Typography>
+          <Grid container justify="center">
+            <img className={classes.img} src={webDev} />
+          </Grid>
           <Grid container spacing={2} justify="center">
             <Grid item>
               <Button variant="contained" color="primary">

@@ -10,10 +10,17 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 import useSiteMetadata from "./SiteMetadata";
 import { background } from "../utils/background";
+import wave from "../img/wave.svg";
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column"
+  },
   content: {
-    marginTop: -100
+    marginTop: -240,
+    flex: "1 0 auto"
   },
   heroContent: {
     backgroundPosition: "center",
@@ -21,12 +28,19 @@ const useStyles = makeStyles(theme => ({
     background,
     paddingTop: 60,
     padding: theme.spacing(8, 0, 6),
-    height: 200,
+    height: 400,
     animation: "$slide 8s linear infinite"
   },
   "@keyframes slide": {
     from: { backgroundPositionY: 0 },
     to: { backgroundPositionY: -350 }
+  },
+  wave: {
+    backgroundImage: `url(${wave})`,
+    backgroundPosition: "center bottom",
+    height: 200,
+    marginTop: -200,
+    backgroundRepeat: "repeat-x"
   }
 }));
 
@@ -77,9 +91,12 @@ const TemplateWrapper = ({ children }) => {
         />
       </Helmet>
       <Navbar />
-      <div className={classes.heroContent} />
-      <div className={classes.content}>{children}</div>
-      <Footer />
+      <div className={classes.root}>
+        <div className={classes.heroContent} />
+        <div className={classes.wave} />
+        <div className={classes.content}>{children}</div>
+        <Footer />
+      </div>
     </ThemeProvider>
   );
 };

@@ -8,8 +8,8 @@ import BlogRoll from "../../components/BlogRoll";
 
 const useStyles = makeStyles({
   title: {
-    marginBottom: 32,
-    color: "#fff"
+    color: "#fff",
+    marginBottom: 12
   }
 });
 

@@ -3,7 +3,6 @@ import { Link } from "gatsby";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
-import logo from "../img/logo.svg";
 import facebook from "../img/social/facebook.svg";
 import instagram from "../img/social/instagram.svg";
 import twitter from "../img/social/twitter.svg";
@@ -11,8 +10,9 @@ import vimeo from "../img/social/vimeo.svg";
 
 const useStyles = makeStyles(theme => ({
   footer: {
-    backgroundColor: theme.palette.background,
-    padding: theme.spacing(6)
+    backgroundColor: theme.palette.paper,
+    padding: theme.spacing(6),
+    flexShrink: 0
   }
 }));
 
