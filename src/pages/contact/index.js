@@ -8,25 +8,14 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Layout from "../../components/Layout";
+import CardLayout from "../../components/CardLayout";
 
 const useStyles = makeStyles(theme => ({
-  paper: {
-    display: "flex",
-    padding: 20,
-    flexDirection: "column",
-    alignItems: "center",
-    backgroundColor: theme.palette.background,
-    margin: 8
-  },
   form: {
     width: "100%" // Fix IE 11 issue.
   },
   submit: {
     margin: theme.spacing(3, 0, 2)
-  },
-  title: {
-    marginBottom: 24,
-    color: "#fff"
   }
 }));
 
@@ -61,87 +50,73 @@ export default function Index() {
 
   return (
     <Layout>
-      <section className="section">
-        <Grid
-          container
-          component="main"
-          className={classes.root}
-          justify="center"
+      <CardLayout title="Contact Me">
+        <form
+          name="contact"
+          method="post"
+          action="/contact/thanks/"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onSubmit={handleSubmit}
+          className={classes.form}
         >
-          <Grid item xs={12} sm={8} md={5}>
-            <Typography className={classes.title} component="h1" variant="h2">
-              Contact Me
-            </Typography>
-            <Paper className={classes.paper}>
-              <form
-                name="contact"
-                method="post"
-                action="/contact/thanks/"
-                data-netlify="true"
-                data-netlify-honeypot="bot-field"
-                onSubmit={handleSubmit}
-                className={classes.form}
-              >
-                {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-                <input type="hidden" name="form-name" value="contact" />
-                <div hidden>
-                  <label>
-                    Don’t fill this out:{" "}
-                    <input name="bot-field" onChange={handleChange} />
-                  </label>
-                </div>
-                <TextField
-                  name="name"
-                  variant="outlined"
-                  margin="normal"
-                  required
-                  fullWidth
-                  label="name"
-                  autoComplete="name"
-                  value={formValue.name || ""}
-                  onChange={handleChange}
-                />
-                <TextField
-                  name="email"
-                  variant="outlined"
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  autoComplete="email"
-                  type="email"
-                  value={formValue.email || ""}
-                  onChange={handleChange}
-                />
-                <TextField
-                  name="message"
-                  variant="outlined"
-                  fullWidth
-                  label="Message"
-                  multiline
-                  rowsMax="6"
-                  rows="4"
-                  value={formValue.message || ""}
-                  onChange={handleChange}
-                  className={classes.textField}
-                  margin="normal"
-                  required
-                />
-                <Button
-                  type="submit"
-                  variant="contained"
-                  color="primary"
-                  className={classes.submit}
-                  size="large"
-                >
-                  Submit
-                </Button>
-              </form>
-            </Paper>
-          </Grid>
-        </Grid>
-      </section>
+          {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+          <input type="hidden" name="form-name" value="contact" />
+          <div hidden>
+            <label>
+              Don’t fill this out:{" "}
+              <input name="bot-field" onChange={handleChange} />
+            </label>
+          </div>
+          <TextField
+            name="name"
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            label="name"
+            autoComplete="name"
+            value={formValue.name || ""}
+            onChange={handleChange}
+          />
+          <TextField
+            name="email"
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            autoComplete="email"
+            type="email"
+            value={formValue.email || ""}
+            onChange={handleChange}
+          />
+          <TextField
+            name="message"
+            variant="outlined"
+            fullWidth
+            label="Message"
+            multiline
+            rowsMax="6"
+            rows="4"
+            value={formValue.message || ""}
+            onChange={handleChange}
+            className={classes.textField}
+            margin="normal"
+            required
+          />
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+            size="large"
+          >
+            Submit
+          </Button>
+        </form>
+      </CardLayout>
     </Layout>
   );
 }
