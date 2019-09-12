@@ -114,7 +114,7 @@ export const BlogPostTemplate = ({
       </Container>
       <Zoom in={scrollTrigger}>
         <Fab
-          color="secondary"
+          color="primary"
           aria-label="to-top"
           className={classes.fab}
           onClick={toTop}

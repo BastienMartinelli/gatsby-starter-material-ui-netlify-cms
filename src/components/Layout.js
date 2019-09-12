@@ -9,7 +9,6 @@ import theme from "../theme";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import useSiteMetadata from "./SiteMetadata";
-import { background } from "../utils/background";
 import wave from "../img/wave.svg";
 
 const useStyles = makeStyles(theme => ({
@@ -25,15 +24,10 @@ const useStyles = makeStyles(theme => ({
   heroContent: {
     backgroundPosition: "center",
     backgroundColor: theme.palette.primary.main,
-    background,
+    background: "#fff linear-gradient(#1c86ff, #1cff95) center",
     paddingTop: 60,
     padding: theme.spacing(8, 0, 6),
-    height: 400,
-    animation: "$slide 8s linear infinite"
-  },
-  "@keyframes slide": {
-    from: { backgroundPositionY: 0 },
-    to: { backgroundPositionY: -350 }
+    height: 400
   },
   wave: {
     backgroundImage: `url(${wave})`,
