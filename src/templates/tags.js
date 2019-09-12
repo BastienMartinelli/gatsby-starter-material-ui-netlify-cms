@@ -1,50 +1,61 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { Link, graphql } from 'gatsby'
-import Layout from '../components/Layout'
+import React from "react";
+import Helmet from "react-helmet";
+import { graphql } from "gatsby";
+import Layout from "../components/Layout";
+import CardLayout from "../components/CardLayout";
+import { Typography, Button } from "@material-ui/core";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import makeStyles from "@material-ui/styles/makeStyles";
 
-class TagRoute extends React.Component {
-  render() {
-    const posts = this.props.data.allMarkdownRemark.edges
-    const postLinks = posts.map(post => (
-      <li key={post.node.fields.slug}>
-        <Link to={post.node.fields.slug}>
-          <h2 className="is-size-2">{post.node.frontmatter.title}</h2>
-        </Link>
-      </li>
-    ))
-    const tag = this.props.pageContext.tag
-    const title = this.props.data.site.siteMetadata.title
-    const totalCount = this.props.data.allMarkdownRemark.totalCount
-    const tagHeader = `${totalCount} post${
-      totalCount === 1 ? '' : 's'
-    } tagged with “${tag}”`
+import AdapterLink from "../components/AdapaterLink";
 
-    return (
-      <Layout>
-        <section className="section">
-          <Helmet title={`${tag} | ${title}`} />
-          <div className="container content">
-            <div className="columns">
-              <div
-                className="column is-10 is-offset-1"
-                style={{ marginBottom: '6rem' }}
-              >
-                <h3 className="title is-size-4 is-bold-light">{tagHeader}</h3>
-                <ul className="taglist">{postLinks}</ul>
-                <p>
-                  <Link to="/tags/">Browse all tags</Link>
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </Layout>
-    )
+const useStyles = makeStyles({
+  list: {
+    marginTop: 20,
+    marginBottom: 20
   }
+});
+
+function TagRoute(props) {
+  const classes = useStyles();
+  const posts = props.data.allMarkdownRemark.edges;
+  const tag = props.pageContext.tag;
+  const title = props.data.site.siteMetadata.title;
+  const totalCount = props.data.allMarkdownRemark.totalCount;
+  const tagHeader = `${totalCount} post${
+    totalCount === 1 ? "" : "s"
+  } tagged with “${tag}”`;
+
+  return (
+    <Layout>
+      <Helmet title={`${tag} | ${title}`} />
+      <CardLayout title="Tags">
+        <Typography component="h1" variant="h4">
+          {tagHeader}
+        </Typography>
+        <List component="nav" className={classes.list}>
+          {posts.map(post => (
+            <ListItem button component={AdapterLink} to={post.node.fields.slug}>
+              <ListItemText primary={post.node.frontmatter.title} />
+            </ListItem>
+          ))}
+        </List>
+        <Button
+          variant="outlined"
+          color="primary"
+          component={AdapterLink}
+          to="/tags/"
+        >
+          Browse all tags
+        </Button>
+      </CardLayout>
+    </Layout>
+  );
 }
 
-export default TagRoute
+export default TagRoute;
 
 export const tagPageQuery = graphql`
   query TagPage($tag: String) {
@@ -71,4 +82,4 @@ export const tagPageQuery = graphql`
       }
     }
   }
-`
+`;

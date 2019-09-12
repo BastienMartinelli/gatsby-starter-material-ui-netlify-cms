@@ -18,7 +18,7 @@ export default function BlogIndexPage() {
 
   return (
     <Layout>
-      <Container>
+      <Container maxWidth="md">
         <Typography className={classes.title} component="h1" variant="h2">
           Latest Stories
         </Typography>

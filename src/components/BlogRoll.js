@@ -32,7 +32,7 @@ function BlogRoll(props) {
     <Grid container spacing={4} className={classes.cardGrid}>
       {posts &&
         posts.map(({ node: post }) => (
-          <Grid item key={post.id} xs={12} md={6}>
+          <Grid item key={post.id} xs={12} md={12}>
             <CardActionArea
               component={AdapterLink}
               to={post.fields.slug}

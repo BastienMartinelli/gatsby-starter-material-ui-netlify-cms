@@ -65,7 +65,7 @@ export const BlogPostTemplate = ({
 
   return (
     <>
-      <Container>
+      <Container maxWidth="md">
         {helmet || ""}
         <Slide in direction="up">
           <Paper className={classes.paper}>
