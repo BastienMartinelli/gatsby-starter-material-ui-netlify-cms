@@ -10,6 +10,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import makeStyles from "@material-ui/styles/makeStyles";
 
 import AdapterLink from "../components/AdapaterLink";
+import BlogItem from "../components/BlogItem";
 
 const useStyles = makeStyles({
   list: {
@@ -38,7 +39,10 @@ function TagRoute(props) {
         <List component="nav" className={classes.list}>
           {posts.map(post => (
             <ListItem button component={AdapterLink} to={post.node.fields.slug}>
-              <ListItemText primary={post.node.frontmatter.title} />
+              <ListItemText
+                primary={post.node.frontmatter.title}
+                secondary={post.node.frontmatter.date}
+              />
             </ListItem>
           ))}
         </List>
@@ -77,6 +81,7 @@ export const tagPageQuery = graphql`
           }
           frontmatter {
             title
+            date(formatString: "MMMM DD, YYYY")
           }
         }
       }

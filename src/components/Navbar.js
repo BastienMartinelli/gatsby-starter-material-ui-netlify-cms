@@ -9,6 +9,7 @@ import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 
 import useSiteMetadata from "./SiteMetadata";
 import AdapterLink from "../components/AdapaterLink";
+import logo from "../img/logo.svg";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -18,7 +19,8 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2)
   },
   title: {
-    flexGrow: 1
+    flexGrow: 1,
+    marginLeft: 8
   },
   transparent: {
     backgroundColor: "transparent",
@@ -51,6 +53,7 @@ function Navbar() {
         elevation={scrollTrigger ? 4 : 0}
       >
         <Toolbar>
+          <img src={logo} width="40" />
           <Typography
             className={classes.title}
             variant="h6"
@@ -59,6 +62,7 @@ function Navbar() {
           >
             {title}
           </Typography>
+
           <Button size="large" color="inherit" component={AdapterLink} to="/">
             Home
           </Button>

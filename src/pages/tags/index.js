@@ -1,44 +1,56 @@
-import React from 'react'
-import { kebabCase } from 'lodash'
-import Helmet from 'react-helmet'
-import { Link, graphql } from 'gatsby'
-import Layout from '../../components/Layout'
+import React from "react";
+import { kebabCase } from "lodash";
+import Helmet from "react-helmet";
+import { graphql } from "gatsby";
+import Layout from "../../components/Layout";
+import CardLayout from "../../components/CardLayout";
+import { Typography } from "@material-ui/core";
+import Chip from "@material-ui/core/Chip";
+import makeStyles from "@material-ui/styles/makeStyles";
+
+import AdapterLink from "../../components/AdapaterLink";
+
+const useStyles = makeStyles({
+  tag: {
+    marginRight: 4
+  },
+  title: {
+    marginBottom: 16
+  }
+});
 
 const TagsPage = ({
   data: {
     allMarkdownRemark: { group },
     site: {
-      siteMetadata: { title },
-    },
-  },
-}) => (
-  <Layout>
-    <section className="section">
-      <Helmet title={`Tags | ${title}`} />
-      <div className="container content">
-        <div className="columns">
-          <div
-            className="column is-10 is-offset-1"
-            style={{ marginBottom: '6rem' }}
-          >
-            <h1 className="title is-size-2 is-bold-light">Tags</h1>
-            <ul className="taglist">
-              {group.map(tag => (
-                <li key={tag.fieldValue}>
-                  <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                    {tag.fieldValue} ({tag.totalCount})
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  </Layout>
-)
+      siteMetadata: { title }
+    }
+  }
+}) => {
+  const classes = useStyles();
 
-export default TagsPage
+  return (
+    <Layout>
+      <Helmet title={`Tags | ${title}`} />
+      <CardLayout title="Tags">
+        <Typography className={classes.title} component="h1" variant="h4">
+          All Tags
+        </Typography>
+        {group.map(tag => (
+          <Chip
+            className={classes.tag}
+            key={tag.fieldValue}
+            label={`${tag.fieldValue} (${tag.totalCount})`}
+            component={AdapterLink}
+            to={`/tags/${kebabCase(tag.fieldValue)}/`}
+          />
+        ))}
+      </CardLayout>
+    </Layout>
+  );
+};
+
+export default TagsPage;
 
 export const tagPageQuery = graphql`
   query TagsQuery {
@@ -54,4 +66,4 @@ export const tagPageQuery = graphql`
       }
     }
   }
-`
+`;

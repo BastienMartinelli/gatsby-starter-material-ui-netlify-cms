@@ -2,26 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql, StaticQuery } from "gatsby";
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardContent from "@material-ui/core/CardContent";
+import BlogItem from "./BlogItem";
 
-import AdapterLink from "../components/AdapaterLink";
-
-const useStyles = makeStyles(theme => ({
-  card: {
-    display: "flex",
-    backgroundColor: theme.palette.background
-  },
-  cardDetails: {
-    flex: 1
-  },
-  cardMedia: {
-    width: 160
-  }
-}));
+const useStyles = makeStyles(theme => ({}));
 
 function BlogRoll(props) {
   const { data } = props;
@@ -29,45 +13,16 @@ function BlogRoll(props) {
   const classes = useStyles();
 
   return (
-    <Grid container spacing={4} className={classes.cardGrid}>
+    <Grid container spacing={4}>
       {posts &&
         posts.map(({ node: post }) => (
           <Grid item key={post.id} xs={12} md={12}>
-            <CardActionArea
-              component={AdapterLink}
+            <BlogItem
+              title={post.frontmatter.title}
               to={post.fields.slug}
-              href="#"
-            >
-              <Card className={classes.card}>
-                <div className={classes.cardDetails}>
-                  <CardContent>
-                    {/**<Hidden xsDown>
-                      {post.frontmatter.featuredimage && (
-                        <CardMedia
-                          image={
-                            post.frontmatter.featuredimage.childImageSharp.fluid
-                              .src
-                          }
-                          title={`featured image thumbnail for post ${post.title}`}
-                        />
-                      )}
-                    </Hidden>*/}
-                    <Typography component="h2" variant="h5" noWrap>
-                      {post.frontmatter.title}
-                    </Typography>
-                    <Typography variant="subtitle1" color="textSecondary">
-                      {post.frontmatter.date}
-                    </Typography>
-                    <Typography variant="subtitle1" paragraph>
-                      {post.description}
-                    </Typography>
-                    <Typography variant="subtitle1" color="primary">
-                      Continue reading...
-                    </Typography>
-                  </CardContent>
-                </div>
-              </Card>
-            </CardActionArea>
+              description={post.description}
+              date={post.frontmatter.date}
+            />
           </Grid>
         ))}
     </Grid>
