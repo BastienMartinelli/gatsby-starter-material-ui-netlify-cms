@@ -2,7 +2,7 @@ import React from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
-import CardLayout from "../components/CardLayout";
+import PageLayout from "../components/PageLayout";
 import { Typography, Button } from "@material-ui/core";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -10,7 +10,6 @@ import ListItemText from "@material-ui/core/ListItemText";
 import makeStyles from "@material-ui/styles/makeStyles";
 
 import AdapterLink from "../components/AdapaterLink";
-import BlogItem from "../components/BlogItem";
 
 const useStyles = makeStyles({
   list: {
@@ -32,7 +31,7 @@ function TagRoute(props) {
   return (
     <Layout>
       <Helmet title={`${tag} | ${title}`} />
-      <CardLayout title="Tags">
+      <PageLayout title="Tags">
         <Typography component="h1" variant="h4">
           {tagHeader}
         </Typography>
@@ -54,7 +53,7 @@ function TagRoute(props) {
         >
           Browse all tags
         </Button>
-      </CardLayout>
+      </PageLayout>
     </Layout>
   );
 }

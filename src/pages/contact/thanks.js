@@ -4,7 +4,7 @@ import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import makeStyles from "@material-ui/styles/makeStyles";
 
-import CardLayout from "../../components/CardLayout";
+import PageLayout from "../../components/PageLayout";
 
 const useStyles = makeStyles(theme => ({
   title: {
@@ -18,7 +18,7 @@ function ThanksPage() {
   return (
     <Layout>
       <Container maxWidth="md">
-        <CardLayout>
+        <PageLayout>
           <Typography
             component="h1"
             variant="h3"
@@ -30,7 +30,7 @@ function ThanksPage() {
           <Typography color="textSecondary" variant="h5" align="center">
             Your message has been sent successfully :)
           </Typography>
-        </CardLayout>
+        </PageLayout>
       </Container>
     </Layout>
   );

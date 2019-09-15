@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Layout from "../../components/Layout";
-import CardLayout from "../../components/CardLayout";
+import PageLayout from "../../components/PageLayout";
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -50,7 +50,7 @@ export default function Index() {
 
   return (
     <Layout>
-      <CardLayout title="Contact Me">
+      <PageLayout title="Contact Me">
         <form
           name="contact"
           method="post"
@@ -116,7 +116,7 @@ export default function Index() {
             Submit
           </Button>
         </form>
-      </CardLayout>
+      </PageLayout>
     </Layout>
   );
 }

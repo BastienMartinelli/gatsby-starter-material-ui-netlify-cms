@@ -5,7 +5,7 @@ import makeStyles from "@material-ui/styles/makeStyles";
 
 import Layout from "../../components/Layout";
 import BlogRoll from "../../components/BlogRoll";
-import CardLayout from "../../components/CardLayout";
+import PageLayout from "../../components/PageLayout";
 
 const useStyles = makeStyles({
   title: {
@@ -19,9 +19,9 @@ export default function BlogIndexPage() {
 
   return (
     <Layout>
-      <CardLayout title="Latest Stories" noCard>
+      <PageLayout title="Latest Stories" noCard>
         <BlogRoll />
-      </CardLayout>
+      </PageLayout>
     </Layout>
   );
 }
