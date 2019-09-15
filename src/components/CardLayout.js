@@ -11,12 +11,12 @@ const useStyles = makeStyles(theme => ({
     margin: 8
   },
   title: {
-    marginBottom: 24,
+    marginBottom: 48,
     color: "#fff"
   }
 }));
 
-export default function CardLayout({ title, children }) {
+export default function CardLayout({ title, children, noCard }) {
   const classes = useStyles();
 
   return (
@@ -28,7 +28,11 @@ export default function CardLayout({ title, children }) {
               {title}
             </Typography>
           )}
-          <Paper className={classes.paper}>{children}</Paper>
+          {noCard ? (
+            children
+          ) : (
+            <Paper className={classes.paper}>{children}</Paper>
+          )}
         </Grid>
       </Grid>
     </section>

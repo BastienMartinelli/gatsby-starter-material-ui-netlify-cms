@@ -39,6 +39,7 @@ const TagsPage = ({
         {group.map(tag => (
           <Chip
             className={classes.tag}
+            onClick={() => {}}
             key={tag.fieldValue}
             label={`${tag.fieldValue} (${tag.totalCount})`}
             component={AdapterLink}

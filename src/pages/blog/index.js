@@ -5,6 +5,7 @@ import makeStyles from "@material-ui/styles/makeStyles";
 
 import Layout from "../../components/Layout";
 import BlogRoll from "../../components/BlogRoll";
+import CardLayout from "../../components/CardLayout";
 
 const useStyles = makeStyles({
   title: {
@@ -18,12 +19,9 @@ export default function BlogIndexPage() {
 
   return (
     <Layout>
-      <Container maxWidth="md">
-        <Typography className={classes.title} component="h1" variant="h2">
-          Latest Stories
-        </Typography>
+      <CardLayout title="Latest Stories" noCard>
         <BlogRoll />
-      </Container>
+      </CardLayout>
     </Layout>
   );
 }

@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column"
   },
   content: {
-    marginTop: -280,
+    marginTop: -320,
     flex: "1 0 auto"
   },
   heroContent: {
