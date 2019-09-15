@@ -102,8 +102,10 @@ export const BlogPostTemplate = ({
                 {tags.map(tag => (
                   <Chip
                     key={tag}
+                    component={AdapaterLink}
                     onClick={() => {}}
-                    label={<Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>}
+                    to={`/tags/${kebabCase(tag)}/`}
+                    label={tag}
                     className={classes.chip}
                   />
                 ))}
